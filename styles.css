@@ -1,0 +1,278 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #f8f9fa;
+  /* light theme */
+  color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Roboto Slab", serif;
+}
+
+.active {
+  color: #d39e00 !important;
+}
+
+.card {
+  transition: ease-in-out 0.3s;
+}
+
+.nav-link {
+  font-weight: 600;
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover btn effect for all screen sizes */
+.btn-warning,
+.btn-dark {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: #d39e00;
+  color: #fff;
+}
+
+.btn-dark:hover {
+  background-color: #444;
+  color: #f8f9fa;
+}
+
+/* Subtle underline animation */
+.btn-warning::after,
+.btn-dark::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  /* matches text color */
+  transition: width 0.3s ease;
+}
+
+.btn-warning:hover::after,
+.btn-dark:hover::after {
+  width: 100%;
+}
+
+/* Mobile stacking only at <=768px */
+@media (max-width: 768px) {
+  .d-flex.flex-column.flex-sm-row.gap-3 {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+  }
+
+  .d-flex.flex-column.flex-sm-row.gap-3 a {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+.hover-highlight {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-highlight:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* EDU CSS */
+.edu-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* HOBBY CSS */
+/* Card base */
+.h {
+  font-family: "Roboto Slab", serif;
+}
+
+.p {
+  font-family: "Lato", sans-serif;
+}
+
+.hobby-card {
+  background: #1c1c1c;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  min-height: 300px;
+  max-height: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hobby-card {
+    max-height: 400px;
+    height: 100%;
+  }
+}
+
+.hobby-card:hover {
+  box-shadow: 0 0 15px #d39e00, 0 0 10px #d39e00 inset;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Background reveal layer */
+.hobby-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+  /* <-- important: don't block hover */
+}
+
+/* Reveal on hover */
+.hobby-card:hover::before {
+  opacity: 0.25;
+}
+
+/* Content above overlay */
+.hobby-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+/* Make sure icons can transform */
+.hobby-card i {
+  display: inline-block;
+  /* <-- lets transform animate reliably */
+  will-change: transform;
+}
+
+/* Wiggle animation */
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(8deg);
+  }
+
+  50% {
+    transform: rotate(-8deg);
+  }
+
+  80% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Trigger wiggle when the CARD is hovered (not the content) */
+.hobby-card:hover i {
+  animation: wiggle 0.6s ease-in-out infinite;
+}
+
+/* Background images per card (keep these) */
+.col-md-3:nth-child(1) .hobby-card::before {
+  background-image: url("https://youthtimemag.com/wp-content/uploads/2021/04/Are-Music-Streaming-Platforms-Good-For-Music.jpg");
+}
+
+.col-md-3:nth-child(2) .hobby-card::before {
+  background-image: url("https://www.verdict.co.uk/wp-content/uploads/2022/09/shutterstock_1934243669.jpg");
+}
+
+.col-md-3:nth-child(3) .hobby-card::before {
+  background-image: url("https://www.baptistpress.com/wp-content/uploads/2020/08/Watching-TV-iStock.jpg");
+}
+
+.col-md-3:nth-child(4) .hobby-card::before {
+  background-image: url("https://tse1.explicit.bing.net/th/id/OIP.OPqF3eH0Tk7d9ou8IaLUUAHaE8?r=0&cb=thfc1&w=768&h=512&rs=1&pid=ImgDetMain&o=7&rm=3");
+}
+
+/*work exp css */
+
+.exp-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  max-height: 400px;
+}
+
+.exp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #d39e00, 0 0 30px rgba(211, 158, 0, 0.6);
+}
+
+/* projects css */
+
+.project-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 7px solid #d39e00;
+
+
+
+  .card-title {
+    text-align: center;
+  }
+
+  .card-text {
+    text-align: justify;
+  }
+
+  .card-img-top {
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
+
+.project-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 20px rgb(211, 158, 0);
+}
+
+.project-card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+/*footer */
+footer .list-unstyled li a {
+  color: #ccc;
+  /* default color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer .list-unstyled li a:hover {
+  color: #d39e00;
+  /* hover color */
+}
